@@ -1,0 +1,99 @@
+// Calcula el promedio de todas las notas del arreglo
+public static double calcularPromedio(int[] notas) {
+
+    // Variable para acumular la suma de las notas
+    int suma = 0;
+
+    // Recorre cada nota del arreglo
+    for (int nota : notas) {
+        suma = suma + nota;
+    }
+
+    // Retorna el promedio
+    return (double) suma / notas.length;
+}
+
+
+// Busca la nota más alta del arreglo
+public static int buscarMaximo(int[] notas) {
+
+    // Se asume inicialmente que la primera nota es la mayor
+    int mayor = notas[0];
+
+    // Recorre todas las notas
+    for (int nota : notas) {
+
+        // Si encuentra una nota mayor, la guarda
+        if (nota > mayor) {
+            mayor = nota;
+        }
+    }
+
+    // Retorna la nota más alta
+    return mayor;
+}
+
+
+// Busca la nota más baja del arreglo
+public static int buscarMinimo(int[] notas) {
+
+    // Se asume inicialmente que la primera nota es la menor
+    int menor = notas[0];
+
+    // Recorre todas las notas
+    for (int nota : notas) {
+
+        // Si encuentra una nota menor, la guarda
+        if (nota < menor) {
+            menor = nota;
+        }
+    }
+
+    // Retorna la nota más baja
+    return menor;
+}
+
+
+// Cuenta cuántos estudiantes aprobaron
+public static int contarAprobados(int[] notas, int notaMinima) {
+
+    // Contador de aprobados
+    int contador = 0;
+
+    // Recorre todas las notas
+    for (int nota : notas) {
+
+        // Verifica si la nota cumple con la mínima aprobatoria
+        if (nota >= notaMinima) {
+            contador++;
+        }
+    }
+
+    // Retorna la cantidad de aprobados
+    return contador;
+}
+
+
+// Muestra un reporte de estudiantes y sus notas
+public static void mostrarReporte(String[] nombres, int[] notas) {
+
+    // Encabezado del reporte
+    System.out.println("Nombres  Notas  Calificación");
+
+    // Recorre todos los estudiantes
+    for (int i = 0; i < nombres.length; i++) {
+
+        // Variable para guardar la calificación textual
+        String calificacion;
+
+        // Verifica si aprobó o reprobó
+        if (notas[i] >= 3) {
+            calificacion = "Aprobado";
+        } else {
+            calificacion = "Reprobado";
+        }
+
+        // Muestra la información del estudiante
+        System.out.println(nombres[i] + "      " + notas[i] + "    " + calificacion);
+    }
+}
